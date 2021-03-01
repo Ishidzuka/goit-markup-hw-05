@@ -123,12 +123,39 @@ header {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
-  color: var(--h-color);
+  text-decoration: none;
+  color: rgba(33, 33, 33, 1);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.172;
   letter-spacing: 0.02em;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link::after {
+  content: ' ';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--hover-color);
+  opacity: 0;
+  transform: translateY(1px);
+}
+
+.nav-list .nav-link.current {
+  color: var(--hover-color);
+}
+
+.nav-list .nav-link.current::after {
+  opacity: 1;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: rgba(33, 150, 243, 1);
 }
 
 .nav-link:hover {
@@ -415,6 +442,7 @@ header {
   border-radius: 50%;
   color: var(--white-text);
   background-color: var(--enjoy-hover);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .enjoy-icon {
